@@ -13,9 +13,12 @@ public class InsultGenerator {
 		try {
 			String databaseURL = "jdbc:postgresql://";
 			databaseURL += System.getenv("postgresql");
-			databaseURL += "/" + System.getenv("insults");
-			String username = System.getenv("insult");
-			String password = System.getenv("insult");
+			//databaseURL += "/" + System.getenv("insults");
+			databaseURL += "/" + "insults";
+//			String username = System.getenv("insult");
+//			String password = System.getenv("insult");
+			String username = "insult";
+			String password = "insult";
 			Connection connection = DriverManager.getConnection(databaseURL, username, password);
 			if (connection != null) {
 				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a , long_adjective b, noun c ORDER BY random() limit 1";
